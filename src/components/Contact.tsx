@@ -77,32 +77,31 @@ const Contact = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-16"></div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {contactInfo.map((info, index) => (
-                <motion.a
-                  key={info.label}
-                  href={info.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className="flex items-center space-x-4 p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-all duration-300 min-h-[100px]"
-                >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                    {typeof info.icon === 'function' ? (
-                      <info.icon />
-                    ) : (
-                      <info.icon size={20} className="text-white" />
-                    )}
-                  </div>
-                  <div className="text-left flex-1 min-w-0">
-                    <h4 className="font-semibold text-s mb-1">{info.label}</h4>
-                    <p className="text-muted-foreground text-s break-words">{info.value}</p>
-                  </div>
-                </motion.a>
-              ))}
+              {contactInfo.map((info, index) => {
+                const IconComponent = info.icon;
+                return (
+                  <motion.a
+                    key={info.label}
+                    href={info.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5, scale: 1.02 }}
+                    className="flex items-center space-x-4 p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-all duration-300 min-h-[100px]"
+                  >
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                      <IconComponent size={20} />
+                    </div>
+                    <div className="text-left flex-1 min-w-0">
+                      <h4 className="font-semibold text-s mb-1">{info.label}</h4>
+                      <p className="text-muted-foreground text-s break-words">{info.value}</p>
+                    </div>
+                  </motion.a>
+                );
+              })}
             </div>
           </motion.div>
         </div>

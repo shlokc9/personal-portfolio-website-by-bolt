@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Download, ArrowDown, Code, Cloud, Database, GitBranch, Instagram } from 'lucide-react';
+import { Github, Linkedin, Download, ArrowDown, Code, Cloud, Database, GitBranch } from 'lucide-react';
 import { smoothScrollToSection, smoothScrollToBottom } from '../utils/smoothScroll';
 
 const Hero = () => {
@@ -93,7 +93,7 @@ const Hero = () => {
                     <skill.icon className="text-primary" size={16} />
                     <span className="font-medium text-sm">{skill.label}</span>
                     <div className="flex gap-1">
-                      {skill.skills.map((tech, i) => (
+                      {skill.skills.map((tech) => (
                         <span 
                           key={tech}
                           className="px-1.5 py-0.5 bg-muted text-muted-foreground rounded text-xs"
@@ -148,7 +148,7 @@ const Hero = () => {
               transition={{ delay: 1.1, duration: 0.8 }}
               className="flex justify-center lg:justify-start space-x-6"
             >
-              {socialLinks.map((social, index) => (
+              {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
@@ -158,11 +158,7 @@ const Hero = () => {
                   whileTap={{ scale: 0.9 }}
                   className="p-3 bg-card rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-foreground hover:text-primary"
                 >
-                  {typeof social.icon === 'function' ? (
-                    <social.icon />
-                  ) : (
-                    <social.icon size={24} />
-                  )}
+                  <social.icon size={24} />
                 </motion.a>
               ))}
             </motion.div>

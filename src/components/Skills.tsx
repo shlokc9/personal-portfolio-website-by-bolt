@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Cloud, Database, BookOpen, PenTool as Tool, Server, Heart, GraduationCap, Layers, HardDrive, Library, Wrench } from 'lucide-react';
+import { Code, Cloud, Database, BookOpen, PenTool as Tool, GraduationCap, Layers, HardDrive, Library, Wrench, Heart } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [

@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Cloud, Database, Award, Heart, Coffee, Mountain, BookOpen, Crown, Car, Dumbbell, Utensils, Music, Headphones, Tv } from 'lucide-react';
+import { Code, Cloud, Database, Award, Car, Dumbbell, Utensils, Crown, Tv, Headphones } from 'lucide-react';
 
 const About = () => {
   const stats = [

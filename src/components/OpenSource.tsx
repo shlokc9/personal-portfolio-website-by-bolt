@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, GitBranch, GitPullRequest, Calendar } from 'lucide-react';
+import { Code, GitPullRequest, Calendar } from 'lucide-react';
 
 const OpenSource = () => {
   const contributions = [
