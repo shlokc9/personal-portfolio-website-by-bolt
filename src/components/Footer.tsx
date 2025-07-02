@@ -1,25 +1,7 @@
 import { motion } from 'framer-motion';
-import { Heart, Github, Linkedin, Mail, Zap, Code, Globe } from 'lucide-react';
+import { Heart, Zap, Code, Globe } from 'lucide-react';
 
 const Footer = () => {
-  const socialLinks = [
-    {
-      icon: Github,
-      href: 'https://github.com/shlokc9',
-      label: 'GitHub'
-    },
-    {
-      icon: Linkedin,
-      href: 'https://www.linkedin.com/in/shlokc9/',
-      label: 'LinkedIn'
-    },
-    {
-      icon: Mail,
-      href: 'mailto:shlokmc9.work@gmail.com',
-      label: 'Email'
-    }
-  ];
-
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-6">
