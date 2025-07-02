@@ -46,25 +46,25 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-muted/10">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-16 sm:py-24 bg-muted/10">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl font-bold mb-6">Get In Touch</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
-          <p className="text-xl text-muted-foreground max-w-5xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Get In Touch</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6 sm:mb-8"></div>
+          <p className="text-base sm:text-xl text-muted-foreground max-w-4xl mx-auto px-4">
             Whether you want to discuss a project, explore collaboration opportunities, 
             or just say hello, I'd love to hear from you. Feel free to reach out through 
             any of the channels below.
           </p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -73,10 +73,10 @@ const Contact = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-4xl font-bold mb-6">Let's Connect</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-16"></div>
+            <h2 className="text-2xl sm:text-4xl font-bold mb-6">Let's Connect</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-12 sm:mb-16"></div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {contactInfo.map((info, index) => {
                 const IconComponent = info.icon;
                 return (
@@ -90,14 +90,14 @@ const Contact = () => {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -5, scale: 1.02 }}
-                    className="flex items-center space-x-4 p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-all duration-300 min-h-[100px]"
+                    className="flex items-center space-x-3 sm:space-x-4 p-4 sm:p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-all duration-300 min-h-[80px] sm:min-h-[100px]"
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                      <IconComponent size={20} />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                      <IconComponent size={18} />
                     </div>
                     <div className="text-left flex-1 min-w-0">
-                      <h4 className="font-semibold text-s mb-1">{info.label}</h4>
-                      <p className="text-muted-foreground text-s break-words">{info.value}</p>
+                      <h4 className="font-semibold text-sm sm:text-base mb-1">{info.label}</h4>
+                      <p className="text-muted-foreground text-xs sm:text-sm break-words">{info.value}</p>
                     </div>
                   </motion.a>
                 );

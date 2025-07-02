@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 ## 🚀 Live Demo
 
-Visit the live website: https://shlokc9.netlify.app
+Visit the live website: [Your Portfolio URL]
 
 ## ✨ Features
 

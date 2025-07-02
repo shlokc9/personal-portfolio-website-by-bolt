@@ -54,17 +54,17 @@ const Header = ({ activeSection }: HeaderProps) => {
         isScrolled ? 'bg-background/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold text-gradient"
+            className="text-xl sm:text-2xl font-bold text-gradient"
           >
             SC
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
@@ -73,11 +73,11 @@ const Header = ({ activeSection }: HeaderProps) => {
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
                     whileHover={{ y: -2 }}
-                    className={`text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-300 font-medium relative cursor-pointer flex items-center gap-1 ${
+                    className={`text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-300 font-medium relative cursor-pointer flex items-center gap-1 text-sm lg:text-base ${
                       isActive ? 'text-primary' : ''
                     } ${link.icon ? 'pb-1' : ''}`}
                   >
-                    {link.icon && <link.icon size={18} />}
+                    {link.icon && <link.icon size={16} />}
                     {!link.icon && link.label}
                   </motion.a>
 
@@ -110,18 +110,18 @@ const Header = ({ activeSection }: HeaderProps) => {
               className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-3">
             <button
               onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
               className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </button>
             
             <button
@@ -129,7 +129,7 @@ const Header = ({ activeSection }: HeaderProps) => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
@@ -149,14 +149,14 @@ const Header = ({ activeSection }: HeaderProps) => {
                   <a
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className={`block px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 cursor-pointer ${
+                    className={`block px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 cursor-pointer ${
                       isActive ? 'text-primary bg-primary/5 dark:bg-primary/10' : ''
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-3">
                         {link.icon && <link.icon size={18} />}
-                        {link.label}
+                        <span className="text-base">{link.label}</span>
                       </div>
                       {isActive && (
                         <motion.div

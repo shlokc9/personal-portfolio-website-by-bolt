@@ -64,19 +64,19 @@
   }
   
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
   }
   
   h2 {
-    @apply text-3xl sm:text-4xl;
+    @apply text-2xl sm:text-3xl md:text-4xl;
   }
   
   h3 {
-    @apply text-2xl sm:text-3xl;
+    @apply text-xl sm:text-2xl md:text-3xl;
   }
   
   h4 {
-    @apply text-xl sm:text-2xl;
+    @apply text-lg sm:text-xl md:text-2xl;
   }
 }
 
@@ -86,7 +86,7 @@
   }
   
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-12 sm:py-16 md:py-24;
   }
   
   .container-custom {
@@ -224,7 +224,7 @@
 }
 
 .technology-tag {
-  @apply px-3 py-1 rounded-full text-sm font-medium bg-muted text-foreground;
+  @apply px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium bg-muted text-foreground;
   @apply hover:bg-primary hover:text-primary-foreground transition-all duration-300;
 }
 
@@ -232,4 +232,63 @@
   @apply border border-border rounded-lg overflow-hidden bg-card;
   @apply transition-all duration-500 hover:shadow-lg hover:shadow-primary/10;
   @apply hover:border-primary/30;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+  
+  /* Ensure text is properly centered on mobile */
+  .text-center {
+    text-align: center !important;
+  }
+  
+  /* Better spacing for mobile */
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Mobile button improvements */
+  .btn-mobile {
+    @apply w-full text-center justify-center;
+  }
+  
+  /* Mobile grid improvements */
+  .grid-cols-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Mobile text sizing */
+  .text-responsive {
+    @apply text-sm leading-relaxed;
+  }
+}
+
+/* Tablet improvements */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    @apply px-6;
+  }
+  
+  /* Better grid layouts for tablets */
+  .grid-tablet-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Ensure proper text alignment across all screen sizes */
+@media (max-width: 1024px) {
+  .lg\:text-left {
+    text-align: center !important;
+  }
+  
+  .lg\:justify-start {
+    justify-content: center !important;
+  }
 }

@@ -19,29 +19,30 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 bg-muted/10">
-      <div className="container mx-auto px-6">
+    <section id="about" className="py-16 sm:py-24 bg-muted/10">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl font-bold mb-6">About Me</h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-8"></div>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">About Me</h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6 sm:mb-8"></div>
         </motion.div>
 
-        {/* Main Content - Single Column */}
-        <div className="max-w-8xl mx-auto">
+        {/* Main Content - Now uses full container width exactly like stats and interests */}
+        <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-12 sm:mb-16"
           >
-            <div className="space-y-6 text-xl text-muted-foreground leading-relaxed text-justify">
+            {/* Grey text now uses full container width - no max-width constraint */}
+            <div className="space-y-4 sm:space-y-6 text-base sm:text-xl text-muted-foreground leading-relaxed text-center sm:text-justify">
               <p>
                 I'm a software developer passionate about crafting scalable, resilient backend systems that blend thoughtful architecture with robust engineering. My favorite work lies at the intersection of cloud infrastructure and application development, creating solutions that not only perform exceptionally but are meticulously built for reliability and observability.
               </p>
@@ -69,13 +70,13 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Stats Section */}
+          {/* Stats Section - Uses same grid layout as other sections */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -85,27 +86,27 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
-                className="bg-card p-6 rounded-xl shadow-lg text-center transition-all duration-300"
+                className="bg-card p-4 sm:p-6 rounded-xl shadow-lg text-center transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="text-white" size={24} />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <stat.icon className="text-white" size={20} />
                 </div>
-                <h4 className="text-3xl font-bold text-foreground mb-2">{stat.number}</h4>
-                <p className="text-muted-foreground font-medium">{stat.label}</p>
+                <h4 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">{stat.number}</h4>
+                <p className="text-sm sm:text-base text-muted-foreground font-medium">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Personal Interests */}
+          {/* Personal Interests - Uses same grid layout as other sections */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h3 className="text-2xl font-bold mb-6 text-foreground">When I'm not coding</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <h3 className="text-xl sm:text-2xl font-bold mb-6 text-foreground">When I'm not coding</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
               {interests.map((interest, index) => (
                 <motion.div
                   key={interest.label}
@@ -114,12 +115,12 @@ const About = () => {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className="flex items-center space-x-4 p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
+                  className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <interest.icon className="text-primary" size={20} />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <interest.icon className="text-primary" size={18} />
                   </div>
-                  <span className="text-base font-medium text-muted-foreground text-left">
+                  <span className="text-sm sm:text-base font-medium text-muted-foreground text-left">
                     {interest.label}
                   </span>
                 </motion.div>
@@ -127,7 +128,7 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Professional Philosophy */}
+          {/* Professional Philosophy - Now uses full container width like other sections */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -135,9 +136,10 @@ const About = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-8 rounded-2xl border border-border">
-              <h4 className="text-2xl font-semibold mb-4 text-foreground">My Philosophy</h4>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+            {/* Philosophy card now uses full container width - no max-width constraint */}
+            <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-6 sm:p-8 rounded-2xl border border-border">
+              <h4 className="text-xl sm:text-2xl font-semibold mb-4 text-foreground">My Philosophy</h4>
+              <p className="text-base sm:text-xl text-muted-foreground leading-relaxed">
                 "Great software isn't just about writing code; it's about understanding the problem deeply, 
                 designing elegant solutions, and building systems that can evolve with changing needs. 
                 I believe in the power of open-source, continuous learning, and creating technology 
