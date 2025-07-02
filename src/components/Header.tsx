@@ -1,0 +1,180 @@
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Menu, X, Moon, Sun, Home } from 'lucide-react';
+import { useTheme } from './ThemeProvider';
+import { smoothScrollToSection, smoothScrollToBottom } from '../utils/smoothScroll';
+
+interface HeaderProps {
+  activeSection: string;
+}
+
+const Header = ({ activeSection }: HeaderProps) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { href: '#home', label: 'Home', icon: Home },
+    { href: '#about', label: 'About' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#work-experience', label: 'Experience' },
+    { href: '#opensource', label: 'Open-Source' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#achievements', label: 'Achievements' },
+    { href: '#contact', label: 'Contact' },
+  ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const sectionId = href.substring(1);
+    
+    // Special handling for contact - scroll to bottom of page with consistent speed
+    if (sectionId === 'contact') {
+      smoothScrollToBottom(1400);
+    } else {
+      // Use consistent scroll speed for all other sections
+      smoothScrollToSection(sectionId, 1400);
+    }
+    setIsMenuOpen(false);
+  };
+
+  return (
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-background/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      }`}
+    >
+      <nav className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="text-2xl font-bold text-gradient"
+          >
+            SC
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <div key={link.href} className="relative">
+                  <motion.a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    whileHover={{ y: -2 }}
+                    className={`text-gray-700 dark:text-gray-300 hover:text-primary transition-colors duration-300 font-medium relative cursor-pointer flex items-center gap-1 ${
+                      isActive ? 'text-primary' : ''
+                    } ${link.icon ? 'pb-1' : ''}`}
+                  >
+                    {link.icon && <link.icon size={18} />}
+                    {!link.icon && link.label}
+                  </motion.a>
+
+                  {/* Enhanced gradient underline animation - faster and more responsive */}
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    animate={{ 
+                      scaleX: isActive ? 1 : 0,
+                      opacity: isActive ? 1 : 0
+                    }}
+                    transition={{ duration: 0.2, ease: "easeOut" }}
+                    style={{ originX: 0.5 }}
+                  />
+                  
+                  {/* Hover effect underline - faster response */}
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-primary/50 to-secondary/50 rounded-full"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: isActive ? 0 : 1 }}
+                    transition={{ duration: 0.15, ease: "easeOut" }}
+                    style={{ originX: 0.5 }}
+                  />
+                </div>
+              );
+            })}
+            
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center gap-4">
+            <button
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+              className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
+            
+            <button
+              className="p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden mt-4 py-4 bg-white dark:bg-gray-900 rounded-lg shadow-lg"
+          >
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <div key={link.href} className="relative">
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`block px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-primary hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300 cursor-pointer ${
+                      isActive ? 'text-primary bg-primary/5 dark:bg-primary/10' : ''
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        {link.icon && <link.icon size={18} />}
+                        {link.label}
+                      </div>
+                      {isActive && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full"
+                        />
+                      )}
+                    </div>
+                  </a>
+                </div>
+              );
+            })}
+          </motion.div>
+        )}
+      </nav>
+    </motion.header>
+  );
+};
+
+export default Header;
