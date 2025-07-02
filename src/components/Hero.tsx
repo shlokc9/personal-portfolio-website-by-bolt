@@ -205,7 +205,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4, duration: 0.8 }}
           onClick={scrollToAbout}
-          className="absolute bottom-2 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors duration-300 cursor-pointer"
+          className="hidden md:block absolute bottom-2 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors duration-300 cursor-pointer"
           aria-label="Scroll to About section"
         >
           <motion.div
