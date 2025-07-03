@@ -69,13 +69,13 @@ const Achievements = () => {
 
   const statsData = [
     {
-      number: '90%',
-      label: 'Test Coverage',
+      number: '3+',
+      label: 'Years of DevOps/Infra Experience',
       icon: Zap
     },
     {
-      number: '3+ Years of DevOps/Infra Experience',
-      label: '',
+      number: '90%',
+      label: 'Test Coverage',
       icon: Target
     },
     {
