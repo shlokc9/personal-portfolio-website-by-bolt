@@ -210,7 +210,7 @@ const WorkExperience = () => {
                 For more details on my SWE journey
               </h3>
               <motion.a
-                href="https://drive.google.com/file/d/1IQGlz9IWZnJ69bJVpAUU_wSacNPwAxAN/view?usp=sharing"
+                href="https://drive.google.com/file/d/1CkRgLsU3P6nanhozDHJNuBeri0Chjk2a/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
