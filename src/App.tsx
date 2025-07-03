@@ -41,7 +41,7 @@ function App() {
   
   return (
     <ThemeProvider defaultTheme="dark" storageKey="theme-preference">
-      <div className="min-h-screen bg-background text-foreground">
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
         <CursorGlow />
         <Header activeSection={activeSection} />
         <motion.main
