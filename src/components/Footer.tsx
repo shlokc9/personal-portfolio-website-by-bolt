@@ -12,7 +12,7 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <div className="flex flex-col items-center space-y-4">
-            <p className="text-gray-400 flex items-center justify-center space-x-2">
+            <p className="text-gray-400 flex items-center justify-center space-x-2 whitespace-nowrap">
               <span>© {new Date().getFullYear()} Shlok Chaudhari. Built with</span>
               <Heart size={16} className="text-red-500" />
               <span>and React</span>
