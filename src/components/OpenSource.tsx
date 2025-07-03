@@ -10,7 +10,7 @@ const OpenSource = () => {
       description: 'Contributed to kubestr, a tool for discovering, validating and evaluating Kubernetes storage options. Developed Kubestr\'s browse & restore CLI functionality to enable efficient file search & selective restoration from backup volumes.',
       skills: ['Go', 'Kubernetes', 'Docker', 'Storage', 'Cobra CLI', 'Google Container Registry', 'Makefile', 'Go Mock', 'Fake Tests', 'Helm Charts', 'GitHub Actions'],
       icon: Code,
-      link: 'https://github.com/kastenhq/kubestr/pulls?q=is%3Apr+author%3Ashlokc9'
+      link: 'https://github.com/kastenhq/kubestr/pulls?q=is%3Apr+author%3Ashlokc9+is%3Aclosed'
     },
     {
       title: 'Kanister',

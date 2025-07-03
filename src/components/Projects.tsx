@@ -31,7 +31,7 @@ const Projects = () => {
       title: 'Cloud Costs per Model Dashboards',
       description: 'Built Grafana dashboards to track per-model cloud spend, enabling teams to optimize costs across the AI Marketplace. Implemented Kubecost, Prometheus & Grafana to monitor performance & resource usage across NLP, CV, & deep-learning models.',
       tech: ['Python', 'Flask', 'Kubecost', 'Prometheus', 'Grafana', 'Kubernetes', 'AWS'],
-      github: 'https://github.com/shlokc9'
+      github: 'https://aimarketplace.co'
     }
   ];
 
