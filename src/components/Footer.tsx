@@ -3,7 +3,7 @@ import { Heart, Zap, Code, Globe } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white py-12">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -12,14 +12,14 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <div className="flex flex-col items-center space-y-4">
-            <p className="text-gray-400 flex items-center justify-center space-x-2 whitespace-nowrap">
+            <p className="text-gray-600 dark:text-gray-400 flex items-center justify-center space-x-2 whitespace-nowrap">
               <span>© {new Date().getFullYear()} Shlok Chaudhari. Built with</span>
               <Heart size={16} className="text-red-500" />
               <span>and React</span>
             </p>
             
             {/* Credits Section */}
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-500">
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-gray-500 dark:text-gray-400">
               <motion.a
                 href="https://stackblitz.com"
                 target="_blank"
@@ -31,7 +31,7 @@ const Footer = () => {
                 <span>Built on StackBlitz</span>
               </motion.a>
               
-              <span className="hidden sm:inline text-gray-600">•</span>
+              <span className="hidden sm:inline text-gray-600 dark:text-gray-500">•</span>
               
               <motion.a
                 href="https://bolt.new"
