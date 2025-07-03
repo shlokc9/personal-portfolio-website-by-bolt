@@ -23,12 +23,8 @@ const Hero = () => {
     { icon: GitBranch, label: 'Open-Source', skills: ['Kubestr', 'Kanister', 'Kopia'] }
   ];
 
-  const scrollToAbout = () => {
-    smoothScrollToSection('about', 1400);
-  };
-
   const scrollToBottom = () => {
-    smoothScrollToBottom(1400);
+    smoothScrollToBottom();
   };
 
   return (
@@ -123,7 +119,7 @@ const Hero = () => {
                 Get In Touch
               </motion.button>
               <motion.button
-                onClick={() => smoothScrollToSection('work-experience', 1400)}
+                onClick={() => smoothScrollToSection('work-experience')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-primary text-primary px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-center cursor-pointer text-sm sm:text-base"
@@ -204,7 +200,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4, duration: 0.8 }}
-          onClick={scrollToAbout}
+          onClick={() => smoothScrollToSection('about')}
           className="hidden md:block absolute bottom-2 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors duration-300 cursor-pointer"
           aria-label="Scroll to About section"
         >

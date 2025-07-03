@@ -1,7 +1,7 @@
 // Smooth scroll utility with distance-based duration for consistent speed
-export const smoothScrollToSection = (sectionId: string, baseSpeed: number = 1400) => {
+export const smoothScrollToSection = (sectionId: string) => {
   if (sectionId === 'home') {
-    smoothScrollTo(0, baseSpeed);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     return;
   }
 
@@ -17,47 +17,11 @@ export const smoothScrollToSection = (sectionId: string, baseSpeed: number = 140
   const standardOffset = -72; // This creates the perfect visual spacing
   const targetPosition = section.offsetTop - headerHeight - standardOffset;
   
-  smoothScrollTo(targetPosition, baseSpeed);
+  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
 };
 
 // Function for scrolling to bottom with consistent speed
-export const smoothScrollToBottom = (baseSpeed: number = 1400) => {
+export const smoothScrollToBottom = () => {
   const targetPosition = document.body.scrollHeight - window.innerHeight;
-  smoothScrollTo(targetPosition, baseSpeed);
-};
-
-const smoothScrollTo = (targetPosition: number, baseSpeed: number) => {
-  const startPosition = window.pageYOffset;
-  const distance = Math.abs(targetPosition - startPosition);
-  
-  // Calculate duration based on distance for consistent speed
-  // baseSpeed is pixels per second (1400px/s = slightly faster comfortable speed)
-  const minDuration = 600;  // Minimum 0.6 seconds for very short distances
-  const maxDuration = 2500; // Maximum 2.5 seconds for very long distances
-  
-  // Calculate duration: distance / speed, with min/max bounds
-  const calculatedDuration = Math.max(minDuration, Math.min(maxDuration, (distance / baseSpeed) * 1000));
-  
-  let startTime: number | null = null;
-
-  const animation = (currentTime: number) => {
-    if (startTime === null) startTime = currentTime;
-    const timeElapsed = currentTime - startTime;
-    const progress = Math.min(timeElapsed / calculatedDuration, 1);
-
-    // Easing function for smooth animation
-    const ease = easeInOutCubic(progress);
-    window.scrollTo(0, startPosition + (targetPosition - startPosition) * ease);
-
-    if (timeElapsed < calculatedDuration) {
-      requestAnimationFrame(animation);
-    }
-  };
-
-  requestAnimationFrame(animation);
-};
-
-// Smooth easing function
-const easeInOutCubic = (t: number): number => {
-  return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+  window.scrollTo({ top: targetPosition, behavior: 'smooth' });
 };

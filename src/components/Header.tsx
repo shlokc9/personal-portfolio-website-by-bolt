@@ -38,10 +38,10 @@ const Header = ({ activeSection }: HeaderProps) => {
     
     // Special handling for contact - scroll to bottom of page with consistent speed
     if (sectionId === 'contact') {
-      smoothScrollToBottom(1400);
+      smoothScrollToBottom();
     } else {
       // Use consistent scroll speed for all other sections
-      smoothScrollToSection(sectionId, 1400);
+      smoothScrollToSection(sectionId);
     }
     setIsMenuOpen(false);
   };
