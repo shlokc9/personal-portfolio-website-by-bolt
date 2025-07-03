@@ -27,7 +27,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center space-x-2 hover:text-blue-400 transition-colors duration-300"
               >
-                <Zap size={14} />
+                <Code size={14} />
                 <span>Developed on StackBlitz</span>
               </motion.a>
               
@@ -40,7 +40,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center space-x-2 hover:text-blue-400 transition-colors duration-300"
               >
-                <Code size={14} />
+                <Zap size={14} />
                 <span>Powered by Bolt</span>
               </motion.a>
 
