@@ -21,7 +21,7 @@ const WorkExperience = () => {
     },
     {
       title: 'Research Systems Administrator',
-      company: 'Illnois Tech College of Computing—Systems Lab',
+      company: 'Illinois Tech College of Computing—Systems Lab',
       period: 'Aug 2023 - May 2024',
       description: 'Administered a 100+ node Linux cloud on Chameleon, cutting downtime by 90% via high-availability configurations and repurposing idle hardware to expand compute capacity. Managed storage and networking, leveraging Ansible and Proxmox to maintain a resilient research environment under Dr. Ioan Raicu\'s guidance.',
       skills: ['Python', 'Proxmox', 'OpenStack', 'OPNSense', 'Ansible', 'Metal-As-A-Service', 'Linux', 'Shell Scripting'],

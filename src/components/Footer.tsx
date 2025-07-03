@@ -28,7 +28,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 hover:text-blue-400 transition-colors duration-300"
               >
                 <Zap size={14} />
-                <span>Built on StackBlitz</span>
+                <span>Developed on StackBlitz</span>
               </motion.a>
               
               <span className="hidden sm:inline text-gray-600 dark:text-gray-500">•</span>
