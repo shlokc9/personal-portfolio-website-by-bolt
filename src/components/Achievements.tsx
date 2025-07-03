@@ -70,7 +70,7 @@ const Achievements = () => {
   const statsData = [
     {
       number: '3+',
-      label: 'Years of DevOps/Infra Experience',
+      label: 'Years of DevOps/Infra',
       icon: Zap
     },
     {
@@ -80,12 +80,12 @@ const Achievements = () => {
     },
     {
       number: '30+',
-      label: 'Open-Source Pull Requests',
+      label: 'OSS Pull Requests',
       icon: Users
     },
     {
       number: '4+',
-      label: 'Years of MLOps/Full-Stack Experience',
+      label: 'Years of MLOps/Full-Stack',
       icon: Award
     }
   ];
