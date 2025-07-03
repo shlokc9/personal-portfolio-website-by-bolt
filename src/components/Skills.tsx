@@ -68,13 +68,13 @@ const Skills = () => {
   const statsData = [
     {
       icon: Layers,
-      label: '10+',
+      label: '7+',
       description: 'Programming Languages'
     },
     {
       icon: HardDrive,
       label: '6+',
-      description: 'Database Systems'
+      description: 'Database Technologies'
     },
     {
       icon: Library,
@@ -84,7 +84,7 @@ const Skills = () => {
     {
       icon: Wrench,
       label: '15+',
-      description: 'Development Tools'
+      description: 'Development Tools & Services'
     }
   ];
 
