@@ -90,14 +90,14 @@ const Contact = () => {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     whileHover={{ y: -5, scale: 1.02 }}
-                    className="flex items-center space-x-3 sm:space-x-4 p-4 sm:p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-all duration-300 min-h-[80px] sm:min-h-[100px]"
+                    className="flex items-center space-x-2 sm:space-x-3 px-3 sm:px-5 py-4 sm:py-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-all duration-300 min-h-[80px] sm:min-h-[100px]"
                   >
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                      <IconComponent size={18} />
+                      <IconComponent size={18} className="text-white dark:text-white" />
                     </div>
                     <div className="text-left flex-1 min-w-0">
                       <h4 className="font-semibold text-sm sm:text-base mb-1">{info.label}</h4>
-                      <p className="text-muted-foreground text-xs sm:text-sm break-words">{info.value}</p>
+                      <p className="text-muted-foreground text-xs sm:text-sm break-words whitespace-nowrap">{info.value}</p>
                     </div>
                   </motion.a>
                 );
