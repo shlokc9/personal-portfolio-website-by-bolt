@@ -66,7 +66,7 @@ const Hero = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-sm sm:text-base lg:text-lg xl:text-xl text-muted-foreground mb-4 sm:mb-6 leading-relaxed text-center lg:text-justify px-2 sm:px-0"
             >
-              I'm a backend engineer with a deep appreciation for the CNCF ecosystem. I love building scalable microservices and designing robust MLOps, LLMOps, and DevOps strategies for cloud-native systems. Committed to open-source, I deliver resilient, observable distributed architectures.
+              I'm a backend & full-stack engineer with a deep appreciation for the CNCF ecosystem. I love building scalable microservices and designing robust MLOps, LLMOps, and DevOps strategies for cloud-native systems. Committed to open-source, I deliver resilient, observable distributed architectures.
             </motion.p>
 
             {/* Compact Key Skills Section - Mobile Optimized */}
