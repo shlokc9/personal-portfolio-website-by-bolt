@@ -295,7 +295,7 @@ Create `netlify.toml` in project root:
 
 ## 📄 License
 
-This project is open source and available under the [MIT License](LICENSE).
+This project is open source and available under the [Apache License 2.0](LICENSE).
 
 ## 🤝 Contributing
 
