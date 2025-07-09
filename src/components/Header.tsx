@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Menu, X, Moon, Sun, Home } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { smoothScrollToSection, smoothScrollToBottom } from '../utils/smoothScroll';
 
 interface HeaderProps {
   activeSection: string;
+}
+
+interface NavLink {
+  href: string;
+  label: string;
+  icon?: React.ElementType;
 }
 
 const Header = ({ activeSection }: HeaderProps) => {
@@ -21,8 +27,7 @@ const Header = ({ activeSection }: HeaderProps) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    // { href: '#home', label: 'Home', icon: Home },
+  const navLinks: NavLink[] = [
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
     { href: '#work-experience', label: 'Experience' },
