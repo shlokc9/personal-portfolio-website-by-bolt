@@ -21,10 +21,6 @@ const Header = ({ activeSection }: HeaderProps) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const { scrollY } = useScroll();
-  const scOpacity   = useTransform(scrollY, [0, 150], [1, 0]);
-  const homeOpacity = useTransform(scrollY, [0, 150], [0, 1]);
-
   const navLinks = [
     // { href: '#home', label: 'Home', icon: Home },
     { href: '#about', label: 'About' },
