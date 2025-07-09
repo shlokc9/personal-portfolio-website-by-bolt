@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Menu, X, Moon, Sun, Home } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { smoothScrollToSection, smoothScrollToBottom } from '../utils/smoothScroll';
@@ -21,8 +21,12 @@ const Header = ({ activeSection }: HeaderProps) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const { scrollY } = useScroll();
+  const scOpacity   = useTransform(scrollY, [0, 150], [1, 0]);
+  const homeOpacity = useTransform(scrollY, [0, 150], [0, 1]);
+
   const navLinks = [
-    { href: '#home', label: 'Home', icon: Home },
+    // { href: '#home', label: 'Home', icon: Home },
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
     { href: '#work-experience', label: 'Experience' },
@@ -56,12 +60,33 @@ const Header = ({ activeSection }: HeaderProps) => {
     >
       <nav className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-xl sm:text-2xl font-bold text-gradient"
+          <div
+            onClick={() => smoothScrollToSection('home')}
+            className="relative cursor-pointer w-max"
+            aria-label="Go to top"
           >
-            SC
-          </motion.div>
+            {/* SC text fades out once isScrolled === true */}
+            <motion.div
+              initial={{ opacity: 1 }}
+              animate={{ opacity: isScrolled ? 0 : 1 }}
+              transition={{ duration: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              className="text-xl sm:text-2xl font-bold text-gradient"
+            >
+              SC
+            </motion.div>
+
+            {/* Home icon fades in once isScrolled === true */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isScrolled ? 1 : 0 }}
+              transition={{ duration: 0.2 }}
+              whileHover={{ scale: 1.05 }}
+              className="absolute inset-0 flex items-center justify-center"
+            >
+              <Home size={18} className="text-gray-700 dark:text-gray-300" />
+            </motion.div>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
