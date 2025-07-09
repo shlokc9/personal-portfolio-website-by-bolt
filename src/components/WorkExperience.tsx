@@ -182,7 +182,7 @@ const WorkExperience = () => {
                   className="bg-card p-4 rounded-lg shadow-md border border-border mb-4 hover:shadow-lg transition-all duration-300"
                 >
                   <h4 className="font-semibold">Certified Kubernetes Adminstrator</h4>
-                  <p className="text-sm text-muted-foreground">The Linux Foundation • Valid till 2027</p>
+                  <p className="text-sm text-muted-foreground">The Linux Foundation • In-Progress</p>
                 </motion.div>
                 
                 <motion.div
@@ -193,7 +193,7 @@ const WorkExperience = () => {
                   className="bg-card p-4 rounded-lg shadow-md border border-border hover:shadow-lg transition-all duration-300"
                 >
                   <h4 className="font-semibold">Solutions Architect - Associate</h4>
-                  <p className="text-sm text-muted-foreground">Amazon Web Services (AWS) • Valid till 2028</p>
+                  <p className="text-sm text-muted-foreground">Amazon Web Services (AWS) • In-Progress</p>
                 </motion.div>
               </div>
             </motion.div>
