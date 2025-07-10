@@ -294,6 +294,6 @@
 }
 
 .text-gradient {
-  --tw-gradient-from: theme('colors.primary');
-  --tw-gradient-to: theme('colors.secondary');
+  --tw-gradient-from: theme('colors.primary.DEFAULT');
+  --tw-gradient-to: theme('colors.secondary.DEFAULT');
 }
