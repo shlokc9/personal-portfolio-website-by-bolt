@@ -292,3 +292,8 @@
     justify-content: center !important;
   }
 }
+
+.text-gradient {
+  --tw-gradient-from: theme('colors.primary');
+  --tw-gradient-to: theme('colors.secondary');
+}
