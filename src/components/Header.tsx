@@ -104,7 +104,7 @@ const Header = ({ activeSection }: HeaderProps) => {
                 <path
                   d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1V9.5z"
                   stroke="url(#logoGradient)"
-                  strokeWidth="3"
+                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
