@@ -42,7 +42,7 @@ const About = () => {
             className="mb-12 sm:mb-16"
           >
             {/* Grey text now uses full container width - no max-width constraint */}
-            <div className="space-y-4 sm:space-y-6 text-base sm:text-xl text-muted-foreground leading-relaxed text-center sm:text-justify">
+            <div className="space-y-4 sm:space-y-6 text-base sm:text-xl text-muted-foreground leading-relaxed text-justify sm:text-justify">
               <p>
                 I'm a software developer passionate about crafting scalable, resilient backend systems that blend thoughtful architecture with robust engineering. My favorite work lies at the intersection of cloud infrastructure and application development, creating solutions that not only perform exceptionally but are meticulously built for reliability and observability.
               </p>
