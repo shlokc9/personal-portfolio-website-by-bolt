@@ -6,13 +6,13 @@ const Achievements = () => {
   const achievements = [
     {
       title: 'Graduate Pathway Scholarship by Illinois Tech',
-      description: 'Secured a merit-based scholarship fund of $12,000 to attend my MSCS graduate program at Illinois Institute of Technology',
+      description: 'Awarded a merit-based scholarship fund of $12000 to attend my CS graduate program at Illinois Tech',
       icon: GraduationCap,
       category: 'Scholarship'
     },
     {
       title: 'Dan Kohn Scholarship by CNCF',
-      description: 'Secured a fully-funded Dan Kohn Scholarship to attend KubeCon + CloudNativeCon North America 2023 Chicago',
+      description: 'Secured fully-funded Dan Kohn Scholarship to attend KubeCon + CloudNativeCon North America \'23 Chicago',
       icon: Trophy,
       category: 'Scholarship'
     },
@@ -152,7 +152,7 @@ const Achievements = () => {
               </div>
               
               <h3 className="text-lg font-semibold mb-2">{achievement.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{achievement.description}</p>
+              <p className="text-muted-foreground mb-4 leading-relaxed">{achievement.description}</p>
             </motion.div>
           ))}
         </div>
