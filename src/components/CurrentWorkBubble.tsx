@@ -170,7 +170,7 @@ const CurrentWorkBubble = ({ activeSection }: CurrentWorkBubbleProps) => {
                     className="w-full border-2 border-primary text-primary py-2.5 px-4 rounded-lg font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-colors duration-300 flex items-center justify-center gap-2"
                   >
                     <Linkedin size={16} />
-                    Connect with me to know more
+                    Follow me to discuss
                     <ExternalLink size={14} />
                   </motion.a>
                 </div>
