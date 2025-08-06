@@ -1,9 +1,16 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FlaskConical, Lightbulb, X, Github, ExternalLink, Linkedin } from 'lucide-react';
+import { FlaskConical, Lightbulb, X, Github, ExternalLink, Linkedin, Calendar } from 'lucide-react';
 
-const CurrentWorkBubble = () => {
+interface CurrentWorkBubbleProps {
+  activeSection: string;
+}
+
+const CurrentWorkBubble = ({ activeSection }: CurrentWorkBubbleProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  
+  // Determine if we should show Calendly button (when in contact section)
+  const showCalendlyButton = activeSection === 'contact';
 
   const currentWork = {
     title: "Axon-Konduit 🧠",
@@ -21,23 +28,53 @@ const CurrentWorkBubble = () => {
   return (
     <>
       {/* Floating Button */}
-      <motion.div
-        className="fixed bottom-6 right-6 z-50"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 2, duration: 0.5, type: "spring" }}
-      >
-        <motion.button
-          onClick={() => setIsExpanded(true)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-medium text-sm"
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        {/* Calendly Button */}
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 2.2, duration: 0.5, type: "spring" }}
         >
-          <FlaskConical size={18} />
-          <span className="hidden sm:inline">Working on a Passion Project</span>
-          <span className="sm:hidden">Open to Collaborate</span>
-        </motion.button>
-      </motion.div>
+          <AnimatePresence mode="wait">
+            {showCalendlyButton ? (
+              <motion.button
+                key="calendly"
+                onClick={() => {
+                  // @ts-ignore - Calendly is loaded globally
+                  window.Calendly?.initPopupWidget({url: 'https://calendly.com/shlokc9'});
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ scale: 0, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0, opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, type: "spring" }}
+                className="bg-gradient-to-r from-secondary to-primary text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-medium text-sm"
+              >
+                <Calendar size={18} />
+                <span className="hidden sm:inline">Schedule time with me</span>
+                <span className="sm:hidden">Schedule Call</span>
+              </motion.button>
+            ) : (
+              <motion.button
+                key="passion-project"
+                onClick={() => setIsExpanded(true)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ scale: 0, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0, opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, type: "spring" }}
+                className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-medium text-sm"
+              >
+                <FlaskConical size={18} />
+                <span className="hidden sm:inline">Working on a Passion Project</span>
+                <span className="sm:hidden">Open to Collaborate</span>
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </div>
 
       {/* Expanded Window */}
       <AnimatePresence>
@@ -65,7 +102,7 @@ const CurrentWorkBubble = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Lightbulb size={20} />
-                    <h3 className="font-semibold">Open To Collaborate</h3>
+                    <h3 className="font-semibold">Open to Collaborate</h3>
                   </div>
                   <button
                     onClick={() => setIsExpanded(false)}
