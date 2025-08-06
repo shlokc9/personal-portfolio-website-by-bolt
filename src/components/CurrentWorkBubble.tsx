@@ -1,6 +1,25 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FlaskConical, Lightbulb, X, Github, ExternalLink, Linkedin, Calendar } from 'lucide-react';
+import { FlaskConical, Lightbulb,  X, Github, ExternalLink, Linkedin, Calendar } from 'lucide-react';
+
+// Declare Calendly as a global variable for TypeScript
+declare global {
+  interface Window {
+    Calendly: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
+}
+
+// Declare global function for mobile header integration
+declare global {
+  interface Window {
+    Calendly: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+    triggerPassionProjectExpanded?: () => void;
+  }
+}
 
 interface CurrentWorkBubbleProps {
   activeSection: string;
@@ -8,6 +27,14 @@ interface CurrentWorkBubbleProps {
 
 const CurrentWorkBubble = ({ activeSection }: CurrentWorkBubbleProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  
+  // Set up global function for mobile header to trigger expanded view
+  useEffect(() => {
+    window.triggerPassionProjectExpanded = () => setIsExpanded(true);
+    return () => {
+      delete window.triggerPassionProjectExpanded;
+    };
+  }, []);
   
   // Determine if we should show Calendly button (when in contact section)
   const showCalendlyButton = activeSection === 'contact';
@@ -28,7 +55,7 @@ const CurrentWorkBubble = ({ activeSection }: CurrentWorkBubbleProps) => {
   return (
     <>
       {/* Floating Button */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+      <div className="fixed bottom-6 right-6 z-50 flex-col gap-3 hidden md:flex">
         {/* Calendly Button */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
@@ -40,8 +67,12 @@ const CurrentWorkBubble = ({ activeSection }: CurrentWorkBubbleProps) => {
               <motion.button
                 key="calendly"
                 onClick={() => {
-                  // @ts-ignore - Calendly is loaded globally
-                  window.Calendly?.initPopupWidget({url: 'https://calendly.com/shlokc9'});
+                  if (window.Calendly) {
+                    window.Calendly.initPopupWidget({url: 'https://calendly.com/shlokc9'});
+                  } else {
+                    // Fallback: open in new tab if Calendly script hasn't loaded
+                    window.open('https://calendly.com/shlokc9', '_blank');
+                  }
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -69,7 +100,7 @@ const CurrentWorkBubble = ({ activeSection }: CurrentWorkBubbleProps) => {
               >
                 <FlaskConical size={18} />
                 <span className="hidden sm:inline">Working on a Passion Project</span>
-                <span className="sm:hidden">Working on a Passion Project</span>
+                <span className="sm:hidden">Passion Project</span>
               </motion.button>
             )}
           </AnimatePresence>

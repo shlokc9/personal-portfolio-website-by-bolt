@@ -1,8 +1,17 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, Home, FlaskConical, Calendar } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { smoothScrollToSection, smoothScrollToBottom } from '../utils/smoothScroll';
+
+// Declare Calendly as a global variable for TypeScript
+declare global {
+  interface Window {
+    Calendly: {
+      initPopupWidget: (options: { url: string }) => void;
+    };
+  }
+}
 
 interface HeaderProps {
   activeSection: string;
@@ -49,6 +58,27 @@ const Header = ({ activeSection }: HeaderProps) => {
       smoothScrollToSection(sectionId);
     }
     setIsMenuOpen(false);
+  };
+
+  // Determine if we should show Calendly button (when in contact section)
+  const showCalendlyButton = activeSection === 'contact';
+
+  const handleMobileButtonClick = () => {
+    if (showCalendlyButton) {
+      // Calendly functionality
+      if (window.Calendly) {
+        window.Calendly.initPopupWidget({url: 'https://calendly.com/shlokc9'});
+      } else {
+        // Fallback: open in new tab if Calendly script hasn't loaded
+        window.open('https://calendly.com/shlokc9', '_blank');
+      }
+    } else {
+      // Passion project functionality - trigger expanded view
+      // This will be handled by a callback prop from CurrentWorkBubble
+      if (window.triggerPassionProjectExpanded) {
+        window.triggerPassionProjectExpanded();
+      }
+    }
   };
 
   return (
@@ -164,6 +194,26 @@ const Header = ({ activeSection }: HeaderProps) => {
   
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center gap-3">
+              {/* Mobile Transition Button */}
+              <motion.button
+                onClick={handleMobileButtonClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-primary to-secondary text-white px-3 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-medium text-xs"
+              >
+                {showCalendlyButton ? (
+                  <>
+                    <Calendar size={14} />
+                    <span>Schedule</span>
+                  </>
+                ) : (
+                  <>
+                    <FlaskConical size={14} />
+                    <span>Project</span>
+                  </>
+                )}
+              </motion.button>
+              
               <button
                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                 className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
