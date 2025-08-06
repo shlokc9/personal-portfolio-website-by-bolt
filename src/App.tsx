@@ -11,6 +11,7 @@ import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CursorGlow from './components/CursorGlow';
+import CurrentWorkBubble from './components/CurrentWorkBubble';
 import { ThemeProvider } from './components/ThemeProvider';
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
           <Contact />
         </motion.main>
         <Footer />
+        <CurrentWorkBubble />
       </div>
     </ThemeProvider>
   );
