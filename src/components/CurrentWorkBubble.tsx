@@ -34,7 +34,7 @@ const CurrentWorkBubble = () => {
           className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 font-medium text-sm"
         >
           <FlaskConical size={18} />
-          <span className="hidden sm:inline">Working on Passion Project</span>
+          <span className="hidden sm:inline">Working on a Passion Project</span>
           <span className="sm:hidden">Open to Collaborate</span>
         </motion.button>
       </motion.div>
