@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Moon, Sun, Home, FlaskConical, Calendar } from 'lucide-react';
+import { Menu, X, Moon, Sun, FlaskConical, Calendar } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { smoothScrollToSection, smoothScrollToBottom } from '../utils/smoothScroll';
 
