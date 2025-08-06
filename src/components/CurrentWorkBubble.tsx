@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FlaskConical, X, Github, ExternalLink, Linkedin } from 'lucide-react';
+import { FlaskConical, Lightbulb, X, Github, ExternalLink, Linkedin } from 'lucide-react';
 
 const CurrentWorkBubble = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -64,8 +64,8 @@ const CurrentWorkBubble = () => {
               <div className="bg-gradient-to-r from-primary to-secondary p-4 text-white">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <FlaskConical size={20} />
-                    <h3 className="font-semibold">Open to Collaborate</h3>
+                    <Lightbulb size={20} />
+                    <h3 className="font-semibold">Open To Collaborate</h3>
                   </div>
                   <button
                     onClick={() => setIsExpanded(false)}
