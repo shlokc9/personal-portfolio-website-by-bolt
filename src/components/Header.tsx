@@ -204,12 +204,12 @@ const Header = ({ activeSection }: HeaderProps) => {
                 {showCalendlyButton ? (
                   <>
                     <Calendar size={14} />
-                    <span>Schedule</span>
+                    <span>Schedule call with me</span>
                   </>
                 ) : (
                   <>
                     <FlaskConical size={14} />
-                    <span>Project</span>
+                    <span>Working on Passion Project</span>
                   </>
                 )}
               </motion.button>
