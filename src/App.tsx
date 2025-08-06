@@ -65,7 +65,7 @@ function App() {
           <Contact />
         </motion.main>
         <Footer />
-        <CurrentWorkBubble />
+        <CurrentWorkBubble activeSection={activeSection} />
       </div>
     </ThemeProvider>
   );
