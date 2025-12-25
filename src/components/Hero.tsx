@@ -127,7 +127,7 @@ const Hero = () => {
                 View My Work
               </motion.button>
               <motion.a
-                href="https://drive.google.com/file/d/1CtKmz6Gq9V18P816OxjXV6IneljD2MYz/view?usp=sharing"
+                href="https://drive.google.com/file/d/1MPtNh6noV6DXqBDZsXFsZBf2wcvRkoJS/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
