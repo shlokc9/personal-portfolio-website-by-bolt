@@ -7,7 +7,7 @@ const WorkExperience = () => {
       title: 'Software Engineer',
       company: 'Changing The Present',
       period: 'Mar 2025 - Present',
-      description: 'Driving the development of PresentOps, an in-house IaC & GitOps platform to provision and manage Kubernetes environments in minutes—implemented Terraform modules, Go microservices, and CLI wrappers that cut setup/onboarding time by up to 80%. Introduced comprehensive Go unit tests to boost coverage to 90% and reduce production bugs by 40%.',
+      description: 'Built PresentOps, an internal IaC/GitOps platform to provision and manage AWS EKS environments. Delivered a Go service on AWS App Runner to run Terraform jobs via SQS + DynamoDB locking, automate Argo CD bootstrapping, and keep provisioning responsive (<200ms) with strong test coverage.',
       skills: ['Go', 'Testify', 'Kubernetes', 'Docker', 'Terraform', 'ArgoCD', 'Git', 'IaC', 'GitOps', 'Developer Productivity'],
       icon: Briefcase
     },
@@ -15,7 +15,7 @@ const WorkExperience = () => {
       title: 'Engineering Intern',
       company: 'Veeam Software',
       period: 'May 2024 - Sep 2024',
-      description: 'Designed and built a File-Level Restore feature for Veeam Kasten, slashing compute and storage overhead by over 70% and enabling reliable file recovery from cloud backups. Engineered a custom volume populator and integrated Kubestr browse/restore commands to streamline filesystem comparisons across multi‐volume snapshots.',
+      description: 'Developed a File-Level Restore PoC for Veeam Kasten to recover individual files directly from exported backups in cloud storage. Shipped Kubestr restore/browse enhancements plus a Volume Populator controller, using Kopia FUSE to mount snapshot exports and avoid full restores while cutting in-cluster restore storage ~99%.',
       skills: ['Go', 'K8s Controllers & Operators', 'Kubebuilder', 'Docker', 'Git', 'Codefresh', 'Data Protection', 'Storage'],
       icon: Briefcase
     },
@@ -23,7 +23,7 @@ const WorkExperience = () => {
       title: 'Research Systems Administrator',
       company: 'Illinois Tech College of Computing—Systems Lab',
       period: 'Aug 2023 - May 2024',
-      description: 'Administered a 100+ node Linux cloud on Chameleon, cutting downtime by 90% via high-availability configurations and repurposing idle hardware to expand compute capacity. Managed storage and networking, leveraging Ansible and Proxmox to maintain a resilient research environment under Dr. Ioan Raicu\'s guidance.',
+      description: 'Operated two Linux-based clouds (100+ VMs) using Proxmox, OpenStack, and OPNsense to support research workloads. Implemented an HA active/backup controller design with HAProxy + VIP failover and heartbeat checks, reducing downtime from controller SPOFs.',
       skills: ['Python', 'Proxmox', 'OpenStack', 'OPNSense', 'Ansible', 'Metal-As-A-Service', 'Linux', 'Shell Scripting'],
       icon: Building
     },
@@ -31,7 +31,7 @@ const WorkExperience = () => {
       title: 'Software Engineer',
       company: 'InfraCloud—An Improving Company',
       period: 'Aug 2021 - Nov 2022',
-      description: 'Contributed to Kasten\'s Kanister controller by simplifying backup/restore workflows—eliminated 90% of complexity from Restic integrations and built CSI snapshot functions to bolster data protection. Revitalized CI/CD pipelines to stabilize test coverage (up to 90%) and reduce flakiness by 30% through mocked tests and workflow updates.',
+      description: 'Extended Kasten/Kanister backup and restore capabilities by integrating Kopia Repository Server CRDs and adding CSI VolumeSnapshot create/restore/delete functions. Simplified workflows by phasing out Restic integrations, optimized backup stats retrieval to reduce ephemeral pod usage, and stabilized CI by reviving pipelines and reducing test flakiness with fakes and GoMock.',
       skills: ['Go', 'K8s Controllers & Operators', 'Kubebuilder', 'Docker', 'Git', 'Codefresh', 'Data Protection', 'Storage'],
       icon: Briefcase
     },
@@ -39,7 +39,7 @@ const WorkExperience = () => {
       title: 'Associate Software Engineer',
       company: 'Abzooba—A UST Global Company',
       period: 'Dec 2019 - Aug 2021',
-      description: 'Led a team to build a Model Monitoring service for UST Xpresso, improving model reliability by 40% and cutting database query times by 30% via optimized SQLAlchemy APIs. Enhanced UX with Jupyter extensions for Kubeflow, streaming Jenkins/Kubeflow status, and authored Pytest suites to raise unit-test coverage to 92%.',
+      description: 'Led development of model monitoring in UST Xpresso, adding threshold-based alerts and a RabbitMQ → Prometheus metrics pipeline powering Grafana/Alertmanager. Automated Kubernetes deployments via Ansible, improved iteration speed with Jupyter + Kubeflow workflow extensions, and strengthened reliability with a high-coverage Pytest suite.',
       skills: ['Python', 'FastAPI', 'JavaScript', 'K8s', 'Docker', 'MongoDB', 'Jupyter', 'Git', 'Jenkins', 'Cloud', 'Ansible'],
       icon: Briefcase
     },
@@ -47,7 +47,7 @@ const WorkExperience = () => {
       title: 'Trainee Software Engineer',
       company: 'Abzooba—A UST Global Company',
       period: 'Jul 2019 - Dec 2019',
-      description: 'Developed a Python data-connection library using Alluxio & Presto that halved data import times and automated Kubernetes deployments with Ansible to eliminate configuration errors. Upgraded an EDA library for unstructured data analysis and integrated GitLab APIs to streamline project versioning.',
+      description: 'Built a Python data connection library using Alluxio and Presto to speed imports from NFS, cloud, and remote databases. Automated Kubernetes deployments with Ansible, enhanced EDA tooling for distributed unstructured data, and integrated GitLab APIs to version full project codebases in the platform’s SCM layer.',
       skills: ['Python', 'FastAPI', 'JavaScript', 'K8s', 'Docker', 'MongoDB', 'Jupyter', 'Git', 'Jenkins', 'Cloud', 'Ansible'],
       icon: Briefcase
     }

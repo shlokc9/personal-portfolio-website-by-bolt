@@ -11,8 +11,8 @@ const Achievements = () => {
       category: 'Scholarship'
     },
     {
-      title: 'Dan Kohn Scholarship by CNCF',
-      description: 'Secured fully-funded Dan Kohn Scholarship to attend KubeCon + CloudNativeCon North America \'23 Chicago',
+      title: '2x Dan Kohn Scholarship by CNCF',
+      description: 'Secured fully-funded Dan Kohn Scholarship to attend KubeCon + CloudNativeCon North America 2023 & 2025',
       icon: Trophy,
       category: 'Scholarship'
     },
@@ -30,7 +30,7 @@ const Achievements = () => {
     },
     {
       title: 'Optimized Compute & Storage at Veeam Kasten',
-      description: 'Optimized compute & storage overhead by over 70% in the File-Level Restore process',
+      description: 'Optimized in-cluster storage overhead by 99% in the File-Level Restore process',
       icon: Zap,
       category: 'Technical Achievement'
     },
@@ -42,7 +42,7 @@ const Achievements = () => {
     },
     {
       title: 'Reduced Cloud Downtime at Systems Research Lab',
-      description: 'Minimized Chameleon cloud downtime by 90% through high availability setup',
+      description: 'Minimized Chameleon cloud downtime through an HA backup controller setup',
       icon: Zap,
       category: 'Technical Achievement'
     },
@@ -54,7 +54,7 @@ const Achievements = () => {
     },
     {
       title: 'Model Reliability Improvement at UST Global',
-      description: 'Led a team to build Model Monitoring service for UST Xpresso, increasing model reliability by 40%',
+      description: 'Led the development of Model Monitoring, reducing 50% model regression incidents via email alerts',
       icon: Trophy,
       category: 'Technical Achievement'
     }
