@@ -58,7 +58,7 @@ const About = () => {
               <p>
                 In my spare time, I'm usually exploring new cloud technologies, contributing to open-source projects, hiking trails around Chicago & San Francisco, or playing chess on{' '}
                 <a 
-                  href="http://chess.com/member/thewarpup" 
+                  href="http://chess.com/member/pup-knight" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-primary hover:text-primary/80 underline decoration-primary/30 hover:decoration-primary/60 transition-all duration-300 font-medium"
